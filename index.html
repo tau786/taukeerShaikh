@@ -19,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -38,7 +37,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -75,12 +73,6 @@
             border-radius: 50%;
             border: 2px solid #4facfe;
             object-fit: cover;
-            background: #4facfe;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
         }
 
         .logo {
@@ -122,7 +114,6 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -130,7 +121,6 @@
             justify-content: center;
             text-align: center;
             padding: 0 2rem;
-            position: relative;
         }
 
         .hero-content {
@@ -145,12 +135,6 @@
             border: 4px solid #4facfe;
             object-fit: cover;
             margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
             transition: all 0.3s ease;
         }
@@ -205,8 +189,6 @@
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -224,7 +206,7 @@
         }
 
         .btn-resume {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             color: #fff;
         }
 
@@ -234,10 +216,9 @@
         }
 
         .btn-resume:hover {
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
         }
 
-        /* Section Styling */
         .section {
             padding: 100px 2rem;
             max-width: 1200px;
@@ -264,12 +245,17 @@
             border-radius: 2px;
         }
 
-        /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-top: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .project-card {
@@ -335,7 +321,6 @@
             border: 1px solid rgba(79, 172, 254, 0.3);
         }
 
-        /* Experience Section */
         .experience-grid {
             display: grid;
             gap: 2rem;
@@ -349,7 +334,6 @@
             padding: 2rem;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
 
         .experience-item::before {
@@ -432,7 +416,6 @@
             font-size: 0.8rem;
         }
 
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -485,7 +468,6 @@
             transform: translateY(-2px);
         }
 
-        /* Education Section */
         .education-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -495,7 +477,6 @@
             text-align: center;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
 
         .education-card::before {
@@ -537,7 +518,6 @@
             font-size: 0.9rem;
         }
 
-        /* Contact Section */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -567,6 +547,7 @@
             font-size: 2rem;
             color: #4facfe;
             margin-bottom: 1rem;
+            display: block;
         }
 
         .contact-item h3 {
@@ -578,7 +559,14 @@
             color: #ccc;
         }
 
-        /* Animations */
+        .linkedin-icon, .phone-icon {
+            width: 2rem;
+            height: 2rem;
+            fill: #4facfe;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -601,7 +589,33 @@
             transform: translateY(0);
         }
 
-        /* Mobile Responsiveness */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -636,47 +650,18 @@
             }
 
             .projects-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
             }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
 
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <div class="nav-avatar">T</div>
+                <img src="https://drive.google.com/uc?export=view&id=1g9ezLvYVtjPntS7o69785LApRE6bzR-A" alt="Taukeer Issa Shaikh" class="nav-avatar">
                 <a href="#" class="logo">Taukeer</a>
             </div>
             <ul class="nav-links">
@@ -690,10 +675,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <div class="hero-avatar">T</div>
+            <img src="https://drive.google.com/uc?export=view&id=1g9ezLvYVtjPntS7o69785LApRE6bzR-A" alt="Taukeer Issa Shaikh" class="hero-avatar">
             <h1>Taukeer Issa Shaikh</h1>
             <p class="subtitle">Senior Associate Software Engineer @ J.P. Morgan Chase</p>
             <p class="description">
@@ -709,7 +693,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="section">
         <h2>Featured Projects</h2>
         <div class="projects-grid fade-in">
@@ -793,7 +776,6 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="section">
         <h2>Professional Experience</h2>
         <div class="experience-grid fade-in">
@@ -902,7 +884,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section">
         <h2>Technical Expertise</h2>
         <div class="skills-grid fade-in">
@@ -968,7 +949,6 @@
         </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education" class="section">
         <h2>Education</h2>
         <div class="fade-in">
@@ -985,7 +965,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section">
         <h2>Let's Connect</h2>
         <div class="contact-grid fade-in">
@@ -995,28 +974,25 @@
                 <p>taukeervnit@gmail.com</p>
             </a>
             <a href="tel:+919834785106" class="contact-item">
-                <div class="contact-icon">📱</div>
+                <svg class="phone-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.4468 13.9509C16.2178 13.8616 16.1032 13.8169 15.9906 13.8046C15.8893 13.7934 15.7878 13.8058 15.6925 13.8413C15.5858 13.8811 15.4906 13.9531 15.3002 14.097L14.2 15.0077C12.4111 14.5122 10.4879 12.5889 9.99235 10.8L10.903 9.69974C11.0469 9.50937 11.1189 9.41419 11.1587 9.30749C11.1942 9.21217 11.2066 9.11067 11.1954 9.00935C11.1831 8.89679 11.1384 8.78213 11.0491 8.55321L9.88299 5.05321C9.745 4.67376 9.67601 4.48403 9.55442 4.34407C9.44701 4.22049 9.31089 4.12515 9.15802 4.06645C8.98496 4 8.78308 4 8.37932 4H5.56201C5.08188 4 4.84181 4 4.63598 4.09925C4.4655 4.18146 4.29814 4.33701 4.20372 4.50103C4.08968 4.69907 4.07375 4.91662 4.04189 5.35173C4.01413 5.73086 4 6.11378 4 6.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
                 <h3>Phone</h3>
                 <p>+91 9834785106</p>
             </a>
             <a href="https://www.linkedin.com/in/taukeer-s007" target="_blank" class="contact-item">
-                <div class="contact-icon">💼</div>
+                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" fill="currentColor"/>
+                </svg>
                 <h3>LinkedIn</h3>
                 <p>Connect with me</p>
             </a>
-            <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <h3>Location</h3>
-                <p>Pune, Maharashtra, India</p>
-            </div>
         </div>
     </section>
 
-    <!-- Scroll to top button -->
     <button class="scroll-top" id="scrollTop">↑</button>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1030,7 +1006,6 @@
             });
         });
 
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             const scrollTop = document.getElementById('scrollTop');
@@ -1044,7 +1019,6 @@
             }
         });
 
-        // Scroll to top functionality
         document.getElementById('scrollTop').addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -1052,7 +1026,6 @@
             });
         });
 
-        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1070,7 +1043,6 @@
             observer.observe(el);
         });
 
-        // Add interactive hover effects to experience items
         document.querySelectorAll('.experience-item, .project-card').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -1081,7 +1053,6 @@
             });
         });
 
-        // Add skill tag hover animation
         document.querySelectorAll('.skill-tag, .project-tech-tag').forEach(tag => {
             tag.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-3px) scale(1.1)';
@@ -1092,10 +1063,9 @@
             });
         });
 
-        // Loading animation
         window.addEventListener('load', function() {
             document.body.style.opacity = '1';
         });
     </script>
 </body>
-</html>
+    </html>
