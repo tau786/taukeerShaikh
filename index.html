@@ -63,6 +63,26 @@
             margin: 0 auto;
         }
 
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #4facfe;
+            object-fit: cover;
+            background: #4facfe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -114,8 +134,30 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #4facfe;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hero-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.5);
         }
 
         .hero h1 {
@@ -165,6 +207,9 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-primary {
@@ -178,9 +223,18 @@
             border: 2px solid #4facfe;
         }
 
+        .btn-resume {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: #fff;
+        }
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+        }
+
+        .btn-resume:hover {
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
         }
 
         /* Section Styling */
@@ -208,6 +262,77 @@
             height: 3px;
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             border-radius: 2px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(79, 172, 254, 0.3);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-card h3 {
+            color: #4facfe;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: #ccc;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-tech-tag {
+            background: rgba(79, 172, 254, 0.2);
+            color: #4facfe;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(79, 172, 254, 0.3);
         }
 
         /* Experience Section */
@@ -507,6 +632,11 @@
             .btn {
                 width: 200px;
                 text-align: center;
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -545,9 +675,13 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Taukeer</a>
+            <div class="nav-brand">
+                <div class="nav-avatar">T</div>
+                <a href="#" class="logo">Taukeer</a>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
@@ -559,6 +693,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <div class="hero-avatar">T</div>
             <h1>Taukeer Issa Shaikh</h1>
             <p class="subtitle">Senior Associate Software Engineer @ J.P. Morgan Chase</p>
             <p class="description">
@@ -567,8 +702,93 @@
                 Currently driving automation and AI integration at J.P. Morgan's Asset & Wealth Management Innovation Team.
             </p>
             <div class="cta-buttons">
-                <a href="#experience" class="btn btn-primary">View My Work</a>
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="https://drive.google.com/file/d/1Y9SklgD2Fuh8wBiyzOcDECTTyQ0MgHjX/view?usp=drivesdk" target="_blank" class="btn btn-resume">Download Resume</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid fade-in">
+            <div class="project-card">
+                <div class="project-icon">🤖</div>
+                <h3>LLM-Powered Document Automation</h3>
+                <p>Designed and implemented intelligent features for extracting and auto-filling data from financial documents at J.P. Morgan, significantly improving operational efficiency for High Net-Worth client workflows.</p>
+                <div class="project-tech">
+                    <span class="project-tech-tag">Java</span>
+                    <span class="project-tech-tag">SpringBoot</span>
+                    <span class="project-tech-tag">LLM</span>
+                    <span class="project-tech-tag">GraphQL</span>
+                    <span class="project-tech-tag">Kafka</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">📊</div>
+                <h3>Financial Market Surveillance System</h3>
+                <p>Engineered heuristic SQR models for financial market abuse detection at CGI, improving risk controls by 20% and reducing false positives by 70% through innovative algorithmic solutions.</p>
+                <div class="project-tech">
+                    <span class="project-tech-tag">Python</span>
+                    <span class="project-tech-tag">Apache Kafka</span>
+                    <span class="project-tech-tag">ELK Stack</span>
+                    <span class="project-tech-tag">Grafana</span>
+                    <span class="project-tech-tag">SQL</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🏗️</div>
+                <h3>Enterprise Database Platform</h3>
+                <p>Spearheaded development of a database hosting platform managing 12,000+ databases using Angular and SpringBoot. Led the entire application lifecycle from build to deployment using CI/CD tools.</p>
+                <div class="project-tech">
+                    <span class="project-tech-tag">Angular</span>
+                    <span class="project-tech-tag">SpringBoot</span>
+                    <span class="project-tech-tag">Hibernate</span>
+                    <span class="project-tech-tag">Jenkins</span>
+                    <span class="project-tech-tag">MySQL</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">✍️</div>
+                <h3>Handwritten Equation Solver</h3>
+                <p>Developed a web-based AI solution using sequential CNN for detecting digits and symbols with 98% accuracy across 5,000 test images. Implemented advanced computer vision techniques for text recognition.</p>
+                <div class="project-tech">
+                    <span class="project-tech-tag">Deep Learning</span>
+                    <span class="project-tech-tag">Computer Vision</span>
+                    <span class="project-tech-tag">Flask</span>
+                    <span class="project-tech-tag">TensorFlow</span>
+                    <span class="project-tech-tag">ResNet18</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🔗</div>
+                <h3>Blockchain Traceability Platform</h3>
+                <p>Built a farm produce traceability system using Distributed Ledger Technologies during internship at Emertech Innovations. Achieved 84% accuracy in supply chain tracking solutions.</p>
+                <div class="project-tech">
+                    <span class="project-tech-tag">Blockchain</span>
+                    <span class="project-tech-tag">Solidity</span>
+                    <span class="project-tech-tag">DLTs</span>
+                    <span class="project-tech-tag">Python</span>
+                    <span class="project-tech-tag">Keras</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">⚡</div>
+                <h3>REST API Testing Framework</h3>
+                <p>Led development of an automated testing framework using Shell Script that reduced UAT testing time by 80%. Created comprehensive testing solutions for microservices architecture.</p>
+                <div class="project-tech">
+                    <span class="project-tech-tag">Shell Scripting</span>
+                    <span class="project-tech-tag">REST APIs</span>
+                    <span class="project-tech-tag">Testing</span>
+                    <span class="project-tech-tag">Automation</span>
+                    <span class="project-tech-tag">CI/CD</span>
+                </div>
             </div>
         </div>
     </section>
@@ -584,7 +804,7 @@
                         <div class="role">Senior Associate – Software Engineer</div>
                         <div style="color: #aaa; font-size: 0.9rem;">Asset & Wealth Management – Innovation Team</div>
                     </div>
-                    <div class="date">Apr 2025 – Present</div>
+                    <div class="date">Aug 2024 – Present</div>
                 </div>
                 <div class="tech-stack">
                     <span class="tech-tag">Java</span>
@@ -674,7 +894,8 @@
                         <li>Engineered heuristic SQR models for financial market abuse detection, improving risk controls by 20%</li>
                         <li>Innovated key features for a trade surveillance scenario, bringing down false positives by 70%</li>
                         <li>Developed a full-stack web application to display alerts from compliance models</li>
-                        <li>🏆 Awarded CGI Awards for taking ownership and timely delivery of the project</li>
+                        <li>Automated web app creation through SQR scripts, cutting setup time from 30 minutes to 2 minutes</li>
+                        <li><span style="color: #4facfe; font-weight: bold;">🏆 Awarded CGI Awards</span> for taking ownership and timely delivery of the project</li>
                     </ul>
                 </div>
             </div>
@@ -849,222 +1070,32 @@
             observer.observe(el);
         });
 
-        // Particle effect on mouse move
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.createElement('div');
-            cursor.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: linear-gradient(45deg, #4facfe, #00f2fe);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9999;
-                left: ${e.clientX}px;
-                top: ${e.clientY}px;
-                opacity: 0.7;
-                animation: fadeOut 1s ease-out forwards;
-            `;
-            document.body.appendChild(cursor);
-            
-            setTimeout(() => {
-                document.body.removeChild(cursor);
-            }, 1000);
-        });
-
-        // Add CSS for fadeOut animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeOut {
-                0% {
-                    opacity: 0.7;
-                    transform: scale(1);
-                }
-                100% {
-                    opacity: 0;
-                    transform: scale(0.5);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Dynamic typing effect for hero subtitle
-        const subtitle = document.querySelector('.hero .subtitle');
-        const originalText = subtitle.textContent;
-        let currentText = '';
-        let index = 0;
-        let isDeleting = false;
-
-        function typeEffect() {
-            if (!isDeleting) {
-                currentText = originalText.slice(0, index + 1);
-                index++;
-                if (index === originalText.length) {
-                    setTimeout(() => {
-                        isDeleting = true;
-                    }, 2000);
-                }
-            } else {
-                currentText = originalText.slice(0, index - 1);
-                index--;
-                if (index === 0) {
-                    isDeleting = false;
-                }
-            }
-
-            subtitle.textContent = currentText + (index % 2 === 0 ? '|' : '');
-            
-            const speed = isDeleting ? 50 : 100;
-            setTimeout(typeEffect, speed);
-        }
-
-        // Start typing effect after page load
-        setTimeout(typeEffect, 3000);
-
-        // Add floating icons animation
-        function createFloatingIcon() {
-            const icons = ['💻', '⚡', '🚀', '💡', '🔧', '📊'];
-            const icon = document.createElement('div');
-            icon.textContent = icons[Math.floor(Math.random() * icons.length)];
-            icon.style.cssText = `
-                position: fixed;
-                font-size: 2rem;
-                pointer-events: none;
-                z-index: -1;
-                opacity: 0.1;
-                left: ${Math.random() * 100}vw;
-                top: 100vh;
-                animation: floatUp 15s linear infinite;
-            `;
-            document.body.appendChild(icon);
-
-            setTimeout(() => {
-                document.body.removeChild(icon);
-            }, 15000);
-        }
-
-        // Create floating icons periodically
-        setInterval(createFloatingIcon, 3000);
-
-        // Add CSS for floating animation
-        const floatingStyle = document.createElement('style');
-        floatingStyle.textContent = `
-            @keyframes floatUp {
-                0% {
-                    transform: translateY(0) rotate(0deg);
-                    opacity: 0.1;
-                }
-                50% {
-                    opacity: 0.3;
-                }
-                100% {
-                    transform: translateY(-100vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(floatingStyle);
-
         // Add interactive hover effects to experience items
-        document.querySelectorAll('.experience-item').forEach(item => {
+        document.querySelectorAll('.experience-item, .project-card').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px) scale(1.02)';
-                this.style.boxShadow = '0 25px 50px rgba(79, 172, 254, 0.2)';
             });
             
             item.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
-                this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
             });
         });
 
         // Add skill tag hover animation
-        document.querySelectorAll('.skill-tag').forEach(tag => {
+        document.querySelectorAll('.skill-tag, .project-tech-tag').forEach(tag => {
             tag.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-3px) scale(1.1)';
-                this.style.background = 'rgba(79, 172, 254, 0.3)';
             });
             
             tag.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
-                this.style.background = 'rgba(255, 255, 255, 0.1)';
             });
         });
 
-        // Add contact item pulse effect
-        document.querySelectorAll('.contact-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('.contact-icon');
-                icon.style.animation = 'pulse 0.6s ease-in-out';
-            });
-        });
-
-        const pulseStyle = document.createElement('style');
-        pulseStyle.textContent = `
-            @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.2); }
-                100% { transform: scale(1); }
-            }
-        `;
-        document.head.appendChild(pulseStyle);
-
-        // Performance optimization - throttle scroll events
-        let ticking = false;
-        
-        function updateScrollEffects() {
-            const navbar = document.getElementById('navbar');
-            const scrollTop = document.getElementById('scrollTop');
-            
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-                scrollTop.classList.add('visible');
-            } else {
-                navbar.classList.remove('scrolled');
-                scrollTop.classList.remove('visible');
-            }
-            
-            ticking = false;
-        }
-
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollEffects);
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', requestTick);
-
-        // Add loading animation
+        // Loading animation
         window.addEventListener('load', function() {
-            document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 1s ease-in-out';
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Add easter egg - Konami code
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up Up Down Down Left Right Left Right B A
-
-        document.addEventListener('keydown', function(e) {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-            
-            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
-                // Easter egg triggered
-                document.body.style.filter = 'hue-rotate(180deg)';
-                setTimeout(() => {
-                    document.body.style.filter = 'none';
-                    alert('🎉 Easter egg found! You discovered the Konami code!');
-                }, 2000);
-                konamiCode = [];
-            }
+            document.body.style.opacity = '1';
         });
     </script>
 </body>
-    </html>
+</html>
